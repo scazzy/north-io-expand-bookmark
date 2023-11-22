@@ -33,7 +33,9 @@
   <br/>
   <br/>
   
-  <a class="btn" href="javascript:(function()%7B!function()%7Bvar%20e%3Ddocument.createElement(%22style%22)%3Be.textContent%3D%22%5Cn%20%20%20%20%20%20body.present-mode%20.main-container-fluid%20%7B%5Cn%20%20%20%20%20%20%20%20max-width%3A%20none%20!important%3B%5Cn%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20.goals-wrapper%20.goals-container.col-md-10%20%7B%5Cn%20%20%20%20%20%20%20%20flex%3A%200%200%20100%25%20!important%3B%5Cn%20%20%20%20%20%20%20%20max-width%3A%20100%25%20!important%3B%5Cn%20%20%20%20%20%20%7D%5Cn%20%20%20%20%22%2Cdocument.head.appendChild(e)%2Cdocument.querySelector(%22.sidebar%22).classList.toggle(%22opened%22)%2Cdocument.querySelector(%22.sidebar%22).classList.toggle(%22minimized%22)%2Cdocument.querySelector(%22body%22).classList.toggle(%22present-mode%22)%7D()%3B%7D)()%3B"><strong>Big North</strong></a>
+  <a class="btn" href="javascript:(function()%20%7B%0A%20%20%20%20!function()%20%7B%0A%20%20%20%20%20%20%20%20if%20(!window.location.hostname.includes(%27to.thenorth.io%27))%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20alert(%22You%27re%20not%20on%20https%3A%2F%2Fto.thenorth.io.%20Click%20on%20the%20bookmark%20on%20North%27s%20Team%20Goals%20page.%20If%20you%20haven%27t%20bookmarked%20it%20yet%2C%20please%20do%20so!%22)%0A%20%20%20%20%20%20%20%20%20%20%20%20return%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20var%20e%20%3D%20document.createElement(%22style%22)%3B%0A%20%20%20%20%20%20%20%20e.textContent%20%3D%20%60%0A%20%20%20%20%20%20%20%20%20%20body.present-mode%20.main-container-fluid%20%7B%0A%20%20%20%20%20%20%20%20%20%20max-width%3A%20none%20!important%3B%0A%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20.goals-wrapper%20.goals-container.col-md-10%20%7B%0A%20%20%20%20%20%20%20%20%20%20flex%3A%200%200%20100%25%20!important%3B%0A%20%20%20%20%20%20%20%20%20%20max-width%3A%20100%25%20!important%3B%0A%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%60%3B%0A%20%20%20%20%20%20%20%20document.head.appendChild(e)%3B%0A%20%20%20%20%20%20%20%20document.querySelector(%22.sidebar%22).classList.toggle(%22opened%22)%3B%0A%20%20%20%20%20%20%20%20document.querySelector(%22.sidebar%22).classList.toggle(%22minimized%22)%3B%0A%20%20%20%20%20%20%20%20document.querySelector(%22body%22).classList.toggle(%22present-mode%22)%3B%0A%20%20%20%20%7D()%3B%0A%7D)()%3B"><strong>Big North</strong></a>
+  
+  
   <br/>
   <p>Drag me to bookmarks bar</p>
   <br/>
@@ -44,5 +46,31 @@
   <br/>
   
   <a href="https://github.com/scazzy/north-io-expand-bookmark/">Github</a>
+
+  <pre style="display: none;">
+    // Source
+    (function() {
+      !function() {
+          if (!window.location.hostname.includes('to.thenorth.io')) {
+              alert("You're not on https://to.thenorth.io. Click on the bookmark on North's Team Goals page. If you haven't bookmarked it yet, please do so!")
+              return;
+          }
+          var e = document.createElement("style");
+          e.textContent = `
+            body.present-mode .main-container-fluid {
+            max-width: none !important;
+         }
+         .goals-wrapper .goals-container.col-md-10 {
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+         }
+          `;
+          document.head.appendChild(e);
+          document.querySelector(".sidebar").classList.toggle("opened");
+          document.querySelector(".sidebar").classList.toggle("minimized");
+          document.querySelector("body").classList.toggle("present-mode");
+      }();
+    })();
+  </pre>
 </body>
 </html>
